@@ -27,4 +27,4 @@ Není potřeba nic extra.
 ## Prvky, na které jsme nejvíce hrdí
 - **Moonwalk Animation**: Interaktivní sekce "The Moonwalk", kde se pomocí GSAP animují stopy bot v nekonečné smyčce, což má symbolizovat Michaelův ikonický taneční pohyb.
 - **Dynamické počítadlo statistik**: V sekci "Síň Slávy" se při nascrollování automaticky spustí animovaný odpočet rekordů.
-- **Karty diskografie**: Interaktivní karty alb s efektem převrácení (3D flip).
+- **Karty diskografie**: Interaktivní karty alb s efektem převrácení.
