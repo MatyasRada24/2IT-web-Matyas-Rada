@@ -22,7 +22,7 @@ Tento projekt je moderní a vizuálně atraktivní web věnovaný Michaelu Jacks
 Není potřeba nic extra.
 
 1. Stáhněte nebo naklonujte složku s projektem.
-2. Otevřete soubor `Michael Jackson.html` v libovolném moderním webovém prohlížeči.
+2. Otevřete soubor `Michael Jackson.html` v jakémkoliv webovém prohlížeči.
 
 ## Prvky, na které jsme nejvíce hrdí
 - **Moonwalk Animation**: Interaktivní sekce "The Moonwalk", kde se pomocí GSAP animují stopy bot v nekonečné smyčce, což má symbolizovat Michaelův ikonický taneční pohyb.
