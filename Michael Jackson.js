@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Loader
     const loader = document.getElementById('loader');
 
-    // Register GSAP ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initial Load Animation (after "fake" load time)
     setTimeout(() => {
         loader.style.opacity = '0';
         setTimeout(() => {
@@ -14,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }, 500);
 
-    // Hero Animations
     function playHeroAnimations() {
         const tl = gsap.timeline();
 
@@ -23,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .to('.description', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.8')
             .to('.cta-button', { opacity: 1, y: 0, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.5');
 
-        // Initialize Particles
         if (typeof particlesJS !== 'undefined') {
             particlesJS('particles-js', {
                 "particles": {
@@ -73,12 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-
-    // Scroll Animations for Timeline
+    
     const timelineItems = document.querySelectorAll('.timeline-item');
 
     timelineItems.forEach((item, index) => {
-        // Determine direction based on class
         const xDir = item.classList.contains('left') ? -50 : 50;
 
         gsap.fromTo(item,
@@ -97,37 +90,33 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 
-    // Moonwalk Animation
     const prints = document.querySelectorAll('.print');
     if (prints.length > 0) {
         gsap.to(prints, {
             scrollTrigger: {
                 trigger: '#legacy',
                 start: 'top 60%',
-                toggleActions: 'play none none none' // Play once or restart? 'play none none reverse' might be better
+                toggleActions: 'play none none none'
             },
             opacity: 1,
-            x: -20, // Slide back slightly like a moonwalk
+            x: -20,
             duration: 0.8,
             stagger: {
                 each: 0.5,
-                repeat: -1, // Loop forever
+                repeat: -1,
                 repeatDelay: 1,
-                yoyo: true // Fade out then back in? Or just restart. Let's try simple sequence loop.
+                yoyo: true
             }
         });
 
-        // Refined loop manually for better control "one by one appearing"
         const mwTimeline = gsap.timeline({ repeat: -1, repeatDelay: 1, scrollTrigger: { trigger: '#legacy', start: 'top 70%' } });
 
         prints.forEach((print) => {
             mwTimeline.to(print, { opacity: 1, x: 0, duration: 0.5, ease: "power1.out" })
-                .to(print, { opacity: 0, duration: 0.5, delay: 1 }); // Fade out after a bit
+                .to(print, { opacity: 0, duration: 0.5, delay: 1 });
         });
-        // Actually, a simple stagger fromTo is cleaner for "walking"
-        // Let's clear the previous attempt and do a simple distinct loop
         mwTimeline.clear();
-        mwTimeline.set(prints, { opacity: 0, x: 50 }); // Start slightly forward
+        mwTimeline.set(prints, { opacity: 0, x: 50 });
 
         prints.forEach((print, i) => {
             mwTimeline.to(print, {
@@ -135,13 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 x: 0,
                 duration: 0.6,
                 ease: "power2.out"
-            }, `+=${i * 0.2}`); // Overlap slightly
+            }, `+=${i * 0.2}`);
         });
 
-        mwTimeline.to(prints, { opacity: 0, duration: 0.5, delay: 0.5 }); // Fade all out to restart
+        mwTimeline.to(prints, { opacity: 0, duration: 0.5, delay: 0.5 });
     }
 
-    // Stats Counter Animation
     const statsSection = document.querySelector('#stats');
     if (statsSection) {
         ScrollTrigger.create({
@@ -157,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     let current = 0;
                     const timer = setInterval(() => {
-                        current += Math.ceil(target / 50); // Increment chunk
+                        current += Math.ceil(target / 50);
                         if (current > target) current = target;
                         counter.innerText = current + (target >= 750 ? 'M+' : '');
                         if (current == target) {
@@ -169,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Quotes Slider (GSAP Version)
     const quotes = document.querySelectorAll('.quote');
     let currentQuote = 0;
 
@@ -177,11 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
         function showNextQuote() {
             const nextQuote = (currentQuote + 1) % quotes.length;
 
-            // Prepare next quote (set initial position and opacity)
             gsap.set(quotes[nextQuote], { opacity: 0, y: 20 });
             quotes[nextQuote].classList.add('active');
 
-            // Fade out current
             gsap.to(quotes[currentQuote], {
                 opacity: 0,
                 y: -20,
@@ -192,12 +177,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // Fade in next
             gsap.to(quotes[nextQuote], {
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                delay: 0.2 // Small delay for smoother transition
+                delay: 0.2
             });
         }
 
@@ -205,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Album Cards Stagger
     gsap.from('.album-card', {
         scrollTrigger: {
             trigger: '.albums-grid',
@@ -218,7 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: 'power3.out'
     });
 
-    // Parallax Effect for Hero Background
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
         const heroOverlay = document.querySelector('.hero-overlay');
@@ -227,16 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
     if (hamburger) {
         hamburger.addEventListener('click', () => {
-            // Toggle Nav
             navLinks.classList.toggle('nav-active');
 
-            // Animate Links
             const links = document.querySelectorAll('.nav-links li');
             links.forEach((link, index) => {
                 if (link.style.animation) {
@@ -246,11 +225,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
 
-            // Hamburger Animation
             hamburger.classList.toggle('toggle');
         });
 
-        // Close menu when a link is clicked
         const links = document.querySelectorAll('.nav-links li a');
         links.forEach(link => {
             link.addEventListener('click', () => {
