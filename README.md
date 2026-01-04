@@ -9,9 +9,9 @@ Tento projekt je moderní a vizuálně atraktivní web věnovaný Michaelu Jacks
 ## Použité technologie a knihovny
 
 ### Core
-- HTML5: Sémantická struktura stránky a SEO optimalizace.
-- Vanilla CSS3: Pokročilý styling, responzivní layout, skleněný efekt animace.
-- Vanilla JavaScript: Logika ovládání menu, loaderu a interaktivních prvků.
+- HTML: Sémantická struktura stránky a SEO optimalizace.
+- CSS: Pokročilý styling, responzivní layout, skleněný efekt animace.
+- JavaScript: Logika ovládání menu, loaderu a interaktivních prvků.
 
 ### Knihovny a API
 - **[GSAP (GreenSock Animation Platform)](https://greensock.com/gsap/)**: Použito pro plynulé úvodní animace, pohybové efekty při scrollování.
