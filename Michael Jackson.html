@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Interaktivní biografie Michaela Jacksona – Krále Popu. Prozkoumejte jeho život, hudbu a odkaz.">
+    <meta name="keywords" content="Michael Jackson, King of Pop, Hudba, Moonwalk, Thriller, Biografie">
+    <meta name="author" content="Váš Web Designer">
+    <meta property="og:title" content="Michael Jackson - The King of Pop">
+    <meta property="og:description" content="Vizuální pocta legendě.">
+    <meta property="og:type" content="website">
+
+    <title>Michael Jackson | King of Pop</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Michael Jackson.css">
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <h1 class="loader-text">MJ</h1>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">MJ</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Úvod</a></li>
+            <li><a href="#biography">Život</a></li>
+            <li><a href="#discography">Hudba</a></li>
+            <li><a href="#legacy">Odkaz</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="subtitle">Navždy Legenda</h2>
+            <h1 class="title">King of Pop</h1>
+            <p class="description">Hudba, která změnila svět.</p>
+            <a href="#biography" class="cta-button">Poznejte příběh</a>
+        </div>
+        <div class="particles" id="particles-js"></div>
+    </header>
+
+    <!-- Biography Section (Timeline) -->
+    <section id="biography">
+        <h2 class="section-title">Cesta Legendy</h2>
+        <div class="timeline">
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="content">
+                    <h3>1964</h3>
+                    <h4>Jackson 5</h4>
+                    <p>Začátek hvězdné kariéry s bratry. Hity jako "I Want You Back" dobývají žebříčky.</p>
+                </div>
+            </div>
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="content">
+                    <h3>1979</h3>
+                    <h4>Off the Wall</h4>
+                    <p>Průlomové sólové album, které definovalo disco-pop éru. Hity jako "Don't Stop 'Til You Get
+                        Enough".</p>
+                </div>
+            </div>
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="content">
+                    <h3>1982</h3>
+                    <h4>Thriller</h4>
+                    <p>Nejprodávanější album všech dob. Revoluce ve videoklipech a popkultuře.</p>
+                </div>
+            </div>
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="content">
+                    <h3>1987</h3>
+                    <h4>Bad & World Tour</h4>
+                    <p>Dominance v hitparádách a první sólové světové turné, které trhalo rekordy.</p>
+                </div>
+            </div>
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="content">
+                    <h3>1995</h3>
+                    <h4>HIStory</h4>
+                    <p>Nejprodávanější dvojalbum všech dob, reflektující minulost, přítomnost a budoucnost.</p>
+                </div>
+            </div>
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="content">
+                    <h3>2009</h3>
+                    <h4>This Is It</h4>
+                    <p>Odkaz, který žije dál. Michael nás opustil, ale jeho hudba je nesmrtelná.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Hall of Fame Section -->
+    <section id="stats">
+        <h2 class="section-title">Síň Slávy</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="13">0</div>
+                <div class="stat-label">Grammy Awards</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="39">0</div>
+                <div class="stat-label">Guinness Records</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="26">0</div>
+                <div class="stat-label">American Music Awards</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="750">0</div>
+                <div class="stat-label">Milionů Desek</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discography Parallax Section -->
+    <section id="discography">
+        <h2 class="section-title">Ikonická Alba</h2>
+        <div class="albums-grid">
+            <div class="album-card thriller">
+                <div class="album-inner">
+                    <div class="album-front">
+                        <h3>Thriller</h3>
+                    </div>
+                    <div class="album-back">
+                        <p>Billie Jean<br>Beat It<br>Thriller</p>
+                    </div>
+                </div>
+            </div>
+            <div class="album-card bad">
+                <div class="album-inner">
+                    <div class="album-front">
+                        <h3>Bad</h3>
+                    </div>
+                    <div class="album-back">
+                        <p>Smooth Criminal<br>Bad<br>Man in the Mirror</p>
+                    </div>
+                </div>
+            </div>
+            <div class="album-card dangerous">
+                <div class="album-inner">
+                    <div class="album-front">
+                        <h3>Dangerous</h3>
+                    </div>
+                    <div class="album-back">
+                        <p>Black or White<br>Heal the World<br>Remember the Time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy / Moonwalk Section -->
+    <section id="legacy">
+        <div class="moonwalk-container">
+            <h2 class="section-title">The Moonwalk</h2>
+            <p>Pohyb, který popřel fyziku.</p>
+            <div class="shoe-prints">
+                <div class="print" id="p1"></div>
+                <div class="print" id="p2"></div>
+                <div class="print" id="p3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes">
+        <div class="quote-container">
+            <div class="quote-icon">“</div>
+            <div class="quote-slider">
+                <div class="quote active">
+                    <p>"Lži běží sprinty, ale pravda běží maratony."</p>
+                </div>
+                <div class="quote">
+                    <p>"Pokud vstoupíte do tohoto světa s vědomím, že jste milováni, a odejdete s tím samým, všechno
+                        mezi tím se dá zvládnout."</p>
+                </div>
+                <div class="quote">
+                    <p>"Nejlepší vzdělání na světě je sledovat mistry při práci."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Michael Jackson</h3>
+            <p>1958 - ∞</p>
+            <div class="socials">
+                <a href="https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm" target="_blank">Spotify</a>
+                <a href="https://www.youtube.com/channel/UC5OrPcLky--yBXMSxcKpGXw" target="_blank">YouTube</a>
+                <a href="https://www.instagram.com/michaeljackson" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Tribute Page. Created with Respect.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Main Script -->
+    <script src="Michael Jackson.js"></script>
+</body>
+
+</html>

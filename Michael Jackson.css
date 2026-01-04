@@ -1,0 +1,732 @@
+/* Basic Reset & Variables */
+:root {
+    --gold: #D4AF37;
+    --dark-gold: #aa8c2c;
+    --black: #050505;
+    --dark-gray: #121212;
+    --white: #f5f5f5;
+    --red: #aa0000;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Loader */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    transition: opacity 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-text {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+.loader-bar {
+    width: 0;
+    height: 4px;
+    background: var(--gold);
+    animation: load 2s ease-out forwards;
+}
+
+@keyframes load {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: var(--transition);
+}
+
+.nav-links li a:hover {
+    color: var(--gold);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Michael_Jackson_in_1988.jpg/800px-Michael_Jackson_in_1988.jpg') no-repeat center center/cover;
+    /* Placeholder for MJ background effect - using a generic URL or CSS pattern is safer if offline, but user wanted online libs so I assume access. 
+       Note: The user instructions say "do not access files not in active workspaces". 
+       I am using a public Wikimedia URL for the background placeholder. */
+    opacity: 0.2;
+    filter: grayscale(100%) contrast(120%);
+    transform: scale(1.1);
+    animation: zoomIn 20s infinite alternate;
+}
+
+@keyframes zoomIn {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 20px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    line-height: 1;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #fff, #999);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(30px);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    color: #ccc;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.cta-button:hover {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Sections Common */
+section {
+    padding: 100px 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--white);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 20px auto 0;
+}
+
+/* Biography Timeline */
+#biography {
+    background: var(--dark-gray);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--gold);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    margin-bottom: 50px;
+    opacity: 0;
+    /* Hidden for JS reveal */
+}
+
+.timeline-item.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item::after {
+    /* The dot */
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--black);
+    border: 3px solid var(--gold);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.left::after {
+    right: -10px;
+}
+
+.timeline-item.right::after {
+    left: -10px;
+}
+
+.content {
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.content:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-5px);
+}
+
+.content h3 {
+    color: var(--gold);
+    font-size: 2rem;
+    font-family: var(--font-heading);
+}
+
+.content h4 {
+    color: var(--white);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.content p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Stats Section */
+#stats {
+    background: linear-gradient(to bottom, var(--dark-gray), var(--black));
+    padding: 80px 50px;
+    min-height: 40vh;
+    /* Shorter section */
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.stat-item {
+    background: rgba(212, 175, 55, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    min-width: 200px;
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Discography */
+#discography {
+    background: var(--black);
+}
+
+.albums-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.album-card {
+    width: 300px;
+    height: 450px;
+    /* Portrait orientation for albums + info */
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.album-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.album-card:hover .album-inner {
+    transform: rotateY(180deg);
+}
+
+.album-front,
+.album-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.album-front {
+    background: #222;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.album-front h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Specific Card Styles (Gradients) */
+/* Specific Card Styles (Images) */
+.thriller .album-front {
+    background: url('images/thriller.jpg') no-repeat center center;
+}
+
+.thriller .album-front h3 {
+    opacity: 0;
+    /* Hide text to show full album art */
+}
+
+.bad .album-front {
+    background: url('images/bad.jpg') no-repeat center center;
+    background-size: cover;
+    border-color: var(--white);
+}
+
+.bad .album-front h3 {
+    opacity: 0;
+}
+
+.dangerous .album-front {
+    background: url('images/dangerous.jpg') no-repeat center center;
+    background-size: cover;
+    border-color: var(--gold);
+}
+
+.dangerous .album-front h3 {
+    opacity: 0;
+}
+
+.album-back {
+    background: var(--white);
+    color: var(--black);
+    transform: rotateY(180deg);
+}
+
+.album-back p {
+    font-weight: 600;
+    line-height: 2;
+}
+
+/* Legacy / Moonwalk */
+#legacy {
+    background: linear-gradient(to top, var(--black), #1a1a1a);
+    text-align: center;
+}
+
+.moonwalk-container p {
+    font-size: 1.5rem;
+    color: #888;
+    margin-bottom: 50px;
+}
+
+.shoe-prints {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 50px;
+}
+
+.print {
+    width: 60px;
+    height: 120px;
+    background: #333;
+    border-radius: 50% 50% 40% 40%;
+    position: relative;
+    opacity: 0;
+    /* Hidden initially for animation */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: rotate(-15deg);
+    /* Slight angle */
+}
+
+.print::after {
+    /* Heel */
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10%;
+    width: 80%;
+    height: 30%;
+    background: #444;
+    border-radius: 40%;
+}
+
+/* Quotes Section */
+#quotes {
+    background: var(--dark-gray);
+    min-height: 50vh;
+    text-align: center;
+}
+
+.quote-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.3;
+    font-family: serif;
+    margin-bottom: 20px;
+}
+
+.quote-slider {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.quote {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    text-align: center;
+}
+
+.quote.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quote p {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px;
+}
+
+/* Footer */
+footer {
+    background: #000;
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.footer-content h3 {
+    font-family: var(--font-heading);
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.socials {
+    margin: 20px 0;
+}
+
+.socials a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.socials a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    color: #444;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item.left::after,
+    .timeline-item.right::after {
+        left: 21px;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 100vh;
+        top: 0vh;
+        background-color: var(--black);
+        /* Or rgba(5,5,5,0.95) for slight transparency */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+        z-index: 99;
+        /* Below toggle button */
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        opacity: 0;
+        /* For fade in animation */
+        margin: 20px 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 101;
+        /* Above menu */
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--gold);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Hamburger Animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
